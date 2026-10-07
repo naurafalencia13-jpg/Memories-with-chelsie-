@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memories with Chelsie</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              200: '#fecdd3',
+              300: '#fda4af',
+              400: '#fb7185',
+              500: '#f43f5e',
+              600: '#e11d48',
+            },
+            pastel: {
+              cream: '#FFF9F5',
+              rose: '#FFE8EC',
+              lavender: '#F3E8FF',
+              peach: '#FFEDD5',
+            }
+          },
+          fontFamily: {
+            handwriting: ['Caveat', 'cursive'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFF9F5;
+      background-image: radial-gradient(#fecdd3 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .letter-paper {
+      background-image: linear-gradient(#fbcfe8 1px, transparent 1px);
+      background-size: 100% 2rem;
+      line-height: 2rem;
+    }
+    /* Animasi Stiker & Amplop */
+    .bounce-gentle {
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 min-h-screen flex flex-col md:flex-row pb-20 md:pb-0 selection:bg-rose-200">
+
+  <!-- Sidebar Navigasi -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-rose-100 p-2 z-40 md:relative md:w-64 md:border-r md:border-t-0 md:min-h-screen md:flex md:flex-col md:justify-between md:p-6 shadow-md">
+    <div>
+      <div class="hidden md:flex items-center gap-3 mb-8 px-2">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-400 to-pink-300 text-white flex items-center justify-center font-bold text-2xl shadow-lg shadow-rose-200 bounce-gentle">
+          🎀
+        </div>
+        <div>
+          <h1 class="font-bold text-gray-800 text-lg leading-tight">Memories</h1>
+          <p class="text-xs text-rose-500 font-semibold flex items-center gap-1">
+            <span>Atika & Chelsie</span> ✨
+          </p>
+        </div>
+      </div>
+
+      <!-- Tombol Navigasi Utama -->
+      <div class="flex justify-around md:flex-col md:gap-2">
+        <button type="button" onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn cursor-pointer flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2.5 rounded-2xl text-xs md:text-sm font-semibold transition-all text-rose-600 bg-rose-100/80">
+          <i class="fa-solid fa-house text-lg"></i>
+          <span>Dashboard</span>
+        </button>
+        <button type="button" onclick="switchTab('photos')" id="nav-photos" class="nav-btn cursor-pointer flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2.5 rounded-2xl text-xs md:text-sm font-semibold transition-all text-gray-500 hover:bg-rose-50 hover:text-rose-600">
+          <i class="fa-solid fa-images text-lg"></i>
+          <span>Foto Kenangan</span>
+        </button>
+        <button type="button" onclick="switchTab('letters')" id="nav-letters" class="nav-btn cursor-pointer flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2.5 rounded-2xl text-xs md:text-sm font-semibold transition-all text-gray-500 hover:bg-rose-50 hover:text-rose-600">
+          <i class="fa-solid fa-envelope-open-text text-lg"></i>
+          <span>Surat Rahasia</span>
+        </button>
+        <button type="button" onclick="switchTab('timeline')" id="nav-timeline" class="nav-btn cursor-pointer flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 py-2.5 rounded-2xl text-xs md:text-sm font-semibold transition-all text-gray-500 hover:bg-rose-50 hover:text-rose-600">
+          <i class="fa-solid fa-timeline text-lg"></i>
+          <span>Timeline</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Frame Hiasan Bawah Navigasi -->
+    <div class="hidden md:block p-4 bg-gradient-to-br from-rose-100 to-pink-50 rounded-3xl text-center border border-rose-200/60 shadow-sm relative overflow-hidden">
+      <span class="absolute -top-2 -right-2 text-2xl">🌷</span>
+      <p class="text-xs text-rose-600 font-bold uppercase tracking-wider">Bestie Zone</p>
+      <p class="font-handwriting text-2xl text-rose-500 mt-1">Atika & Chelsie</p>
+      <p class="text-[10px] text-gray-400 mt-1"> Forever & Always 💕</p>
+    </div>
+  </nav>
+
+  <!-- Konten Utama -->
+  <main class="flex-1 p-4 md:p-8 max-w-5xl
